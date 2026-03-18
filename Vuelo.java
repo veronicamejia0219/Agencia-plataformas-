@@ -1,3 +1,4 @@
+import java.time.LocalTime;
 public class Vuelo{
     int idVuelos;
     String destino;
