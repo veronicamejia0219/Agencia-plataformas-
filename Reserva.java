@@ -18,5 +18,12 @@ public class Reserva{
         System.out.println("Vuelo: " + vuelo);
         System.out.println("Hotel: " + hotel);
     }
+     public void imprimirResumen() {
+        System.out.println("\n============================");
+        System.out.println("      DETALLE DE RESERVA     ");
+        System.out.println("============================");
+
+
+    }
 
 }
