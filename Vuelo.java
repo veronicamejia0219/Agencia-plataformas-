@@ -1,50 +1,41 @@
 public class Vuelo {
 
-    String numeroVuelo;
-    String aerolinea;
-    String destino;
-    String fecha;
+    public String nombre;
+    public int telefono;
+    public int hora;
+    public String ubicacion;
+    public Vuelo(String nombre, int telefono, int hora, String ubicacion) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.hora = hora;
+        this.ubicacion = ubicacion;
+    }
 
-    String[] destinosPermitidos = {"Cartagena", "Santa Marta", "Cali"};
+   
+    public String getNombre() { return nombre; }
+    public int getTelefono() { return telefono; }
+    public int getHora() { return hora; }
+    public String getUbicacion() { return ubicacion; }
+    public void mostrarInfo() {
+        System.out.println("Vuelo: " + nombre);
+        System.out.println("Teléfono: " + telefono);
+        System.out.println("Hora: " + hora);
+        System.out.println("Ubicación: " + ubicacion);
+    }
 
-    public Vuelo(String numeroVuelo, String aerolinea, String destino, String fecha) {
-
-        this.numeroVuelo = numeroVuelo;
-        this.aerolinea = aerolinea;
-        this.fecha = fecha;
-
-        boolean valido = false;
-
-        for (String d : destinosPermitidos) {
-            if (d.equals(destino)) {
-                valido = true;
-            }
-        }
-
-        if (valido) {
-            this.destino = destino;
+    public void mostrarInfo(boolean detallado) {
+        if (detallado) {
+            System.out.println("--- DETALLE COMPLETO ---");
+            System.out.println("Nombre: " + nombre);
+            System.out.println("Ubicacion: " + ubicacion);
+            System.out.println("Hora: " + hora);
+            System.out.println("Telefono: " + telefono);
         } else {
-            this.destino = "No válido";
+            mostrarInfo();
         }
     }
 
-    public boolean confirmarReserva() {
 
-        if (destino.equals("No válido")) {
-            System.out.println("Destino del vuelo no permitido");
-            return false;
-        }
-
-        return true;
+    public void mostrarInfo(String mensajePersonalizado) {
+        System.out.println(mensajePersonalizado + " " + nombre);
     }
-    
-        void buscarVueloPorId(int idBusqueda) {
-        if (this.idVuelos == idBusqueda) {
-            System.out.println("¡Vuelo encontrado!");
-            obtenerVuelo(); // Llama a tu otro método para mostrar los datos
-        } else {
-            System.out.println("El ID " + idBusqueda + " no coincide con este vuelo.");
-        }
-    }
-}
-
